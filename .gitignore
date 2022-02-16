@@ -1,0 +1,2 @@
+*.pyc 
+app/partsegvis/weights/SCOPS-MSHIP.pth
