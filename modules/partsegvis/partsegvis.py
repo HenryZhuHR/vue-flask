@@ -11,7 +11,7 @@ MODEL_PATH = './weights/SCOPS-MSHIP.pth'
 
 class Visualizer:
 
-    def __init__(self, model_path) -> None:
+    def __init__(self, model_path=MODEL_PATH) -> None:
         class TestArgs:
             pass
         args = TestArgs
@@ -58,7 +58,6 @@ class Visualizer:
         img_pil = Image.fromarray(img.cpu().numpy().astype('uint8')).convert('RGB')
 
         return Image.blend(img_pil, pred_pil, 0.5)
-
 
 if __name__=='__main__':
     vis = Visualizer(MODEL_PATH)
