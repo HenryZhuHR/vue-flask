@@ -1,4 +1,4 @@
-from cv2 import norm
+# from cv2 import norm
 from model.model_factory import model_generator
 import torch
 from torchvision.transforms.functional import to_pil_image, normalize, to_tensor

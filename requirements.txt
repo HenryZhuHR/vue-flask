@@ -1,2 +1,5 @@
 flask
 requests
+torch
+torchvision
+einops
