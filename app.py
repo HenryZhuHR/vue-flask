@@ -13,6 +13,7 @@ _RETURN_INVALID_REQUEST_PARAMETER = json.dumps({
 
 
 
+from modules.part_segementation.app import segementation
 @modules.route('/api/part_seg', methods=['post'])
 def part():
     """
@@ -32,12 +33,10 @@ def part():
             }
         })
     try:
-        image_data = base64.b64decode(data_json['image'])
-        SELECT_IMAGE = image_data
-        with open('source/default.jpg', 'wb') as f_img:
-            f_img.write(SELECT_IMAGE)
+        # image_data = base64.b64decode(data_json['image'])
+        # SELECT_IMAGE = image_data
         return json.dumps({
-            'status': 'Success'
+            'image':segementation(data_json['image'])
         })
     except:
         return json.dumps({
