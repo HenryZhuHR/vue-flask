@@ -1,9 +1,19 @@
+# MacOS
 .DS_Store
+
+# python
+*.pyc
+__pycache__
+
+# torch model
+*.pth
+
+# node
 node_modules
 /dist
 
-
 # local env files
+
 .env.local
 .env.*.local
 

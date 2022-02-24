@@ -5,6 +5,7 @@ from PIL import Image
 
 
 MODEL_PATH = os.path.split(__file__)[0]+'/weights/SCOPS-MSHIP.pth'
+# print(' -- Load [part segmentation] model: %s'%MODEL_PATH)
 from .visualizer import Visualizer
 vis = Visualizer(MODEL_PATH)
 

@@ -1,5 +1,9 @@
+# flask 
 flask
+flask_cors
 requests
+
+# torch
 torch
 torchvision
 einops

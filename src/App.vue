@@ -1,18 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <button @click="increment"></button>
-    {{ counter }}
-
+  <div><GlobalHeader title="深度学习" /></div>
+  <div class="container">
+    <AppPartseg />
+  </div>
 </template>
 
 <script>
-
+import GlobalHeader from "./components/GlobalHeader.vue";
+import AppPartseg from "./components/AppPartseg.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    
-  }
-}
+    GlobalHeader,
+    AppPartseg,
+  },
+  data() {
+    return {
+      title: "Hello Vue!",
+    };
+  },
+};
 </script>
 
 <style>

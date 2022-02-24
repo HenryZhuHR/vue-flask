@@ -1,9 +1,10 @@
 import flask
 import json
 import base64
+from flask_cors import CORS
 
-modules=flask.Flask(__name__)
-
+app=flask.Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 _RETURN_INVALID_REQUEST_PARAMETER = json.dumps({
     'Error': {
         'Code': 'NotParameterGet',
@@ -14,17 +15,20 @@ _RETURN_INVALID_REQUEST_PARAMETER = json.dumps({
 
 
 from modules.part_segementation.app import segementation
-@modules.route('/api/part_seg', methods=['post'])
+@app.route('/api/part_seg', methods=['post'])
 def part():
     """
         Parameter
         ---
             - `image` (base64)
     """
+
     if not flask.request.data:  # check if valid data
         return _RETURN_INVALID_REQUEST_PARAMETER
     # parase paramter
     data_json = json.loads(flask.request.data.decode('utf-8'))
+
+
     if 'image' not in data_json:
         return json.dumps({
             'Error': {
@@ -36,7 +40,7 @@ def part():
         # image_data = base64.b64decode(data_json['image'])
         # SELECT_IMAGE = image_data
         return json.dumps({
-            'image':segementation(data_json['image'])
+            'image':'data:image/jpeg;base64,'+segementation(data_json['image'])
         })
     except:
         return json.dumps({
@@ -48,7 +52,8 @@ def part():
 
 
 if __name__=='__main__':
-    modules.run(
-        host='127.0.0.1', 
+    app.run(
+        host='127.0.0.1',
+        # host='192.168.1.131',
         # port=2021
         )

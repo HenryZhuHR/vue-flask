@@ -20,7 +20,7 @@ URL_BASE = 'http://127.0.0.1:5000/api'
 
 # Test part_seg
 url = '%s/part_seg' % URL_BASE
-image_path='source/images/cvn_0001.jpg'
+image_path='images/cvn_0001.jpg'
 data = {
     'image': base64.b64encode(open(image_path, 'rb').read()).decode()
 }
