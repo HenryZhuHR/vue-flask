@@ -1,10 +1,12 @@
 import flask
 import json
 import base64
-from flask_cors import CORS
+import flask_cors
 
 app=flask.Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+flask_cors.CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 _RETURN_INVALID_REQUEST_PARAMETER = json.dumps({
     'Error': {
         'Code': 'NotParameterGet',
